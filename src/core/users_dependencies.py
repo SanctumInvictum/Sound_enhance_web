@@ -2,7 +2,7 @@ from datetime import datetime
 from fastapi import Request, Depends
 from jose import jwt, JWTError
 
-from config import settings
+from src.config import settings
 from exceptions import TokenExpireException, TokenAbsentException, IncorrectTokenFormatException, \
     UserIsNotPresentException
 from src.dao.users import UsersDAO

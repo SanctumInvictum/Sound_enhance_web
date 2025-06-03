@@ -1,0 +1,6 @@
+from src.core.base_methods import BaseDAO
+from src.models.upload import UploadedFile
+
+
+class UploadDAO(BaseDAO):
+    model = UploadedFile

@@ -13,7 +13,7 @@ from alembic import context
 sys.path.insert(0, dirname(dirname(dirname(abspath(__file__)))))
 
 from src.db.DataBase import Base, DATABASE_URL
-from src.models import users
+from src.models import users, upload
 
 # Проверка строки подключения
 print(f"Using DATABASE_URL: {DATABASE_URL}")  # Для отладки
