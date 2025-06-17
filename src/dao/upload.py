@@ -1,4 +1,4 @@
-from src.core.base_methods import BaseDAO
+from src.core.db_methods import BaseDAO
 from src.models.upload import UploadedFile
 
 

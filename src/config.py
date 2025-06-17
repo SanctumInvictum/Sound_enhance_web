@@ -17,6 +17,9 @@ class Settings(BaseSettings):
     S3_URL: str = Field(..., env="S3_URL")
     S3_BUCKET_NAME: str = Field(..., env="S3_BUCKET_NAME")
 
+    RABBIT_HOST: str
+    RABBIT_PORT: int
+
     class Config:
         env_file = ".env"
         extra = "ignore"

@@ -1,19 +1,16 @@
 import sys
-import logging
 import asyncio
 from logging.config import fileConfig
 from os.path import dirname, abspath
 
-from sqlalchemy.ext.asyncio import create_async_engine, AsyncEngine
-from sqlalchemy import engine_from_config
+from sqlalchemy.ext.asyncio import create_async_engine
 from sqlalchemy import pool
 
 from alembic import context
 
 sys.path.insert(0, dirname(dirname(dirname(abspath(__file__)))))
 
-from src.db.DataBase import Base, DATABASE_URL
-from src.models import users, upload
+from src.services.db_client import Base, DATABASE_URL
 
 # Проверка строки подключения
 print(f"Using DATABASE_URL: {DATABASE_URL}")  # Для отладки

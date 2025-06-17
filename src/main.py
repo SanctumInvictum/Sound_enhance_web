@@ -1,8 +1,10 @@
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
 import datetime
+
+from src.core.rabbit_dependencies import init_rabbit_queues
 from src.routers.___init___ import main_router
-from src.core.dependencies import get_s3_client
+from src.core.s3_dependencies import get_s3_client
 
 
 @asynccontextmanager
@@ -16,6 +18,11 @@ async def lifespan(app: FastAPI):
         await s3_client.upload_file(test_data, "connection_test.txt")
     except Exception as e:
         print(f"⚠️ MinIO connection failed: {str(e)}")
+
+    try:
+        await init_rabbit_queues()
+    except Exception as e:
+        print(f"⚠️ RabbitMQ connection failed: {str(e)}")
 
     yield
 

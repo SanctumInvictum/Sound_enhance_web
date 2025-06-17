@@ -1,6 +1,6 @@
 from sqlalchemy import Column, String, Integer, DateTime, ForeignKey
 from sqlalchemy.sql import func
-from src.db.DataBase import Base
+from src.services.db_client import Base
 
 
 class UploadedFile(Base):
